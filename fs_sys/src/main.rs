@@ -1,22 +1,26 @@
 use std::fs;
 use std::path::Path;
-fn main() {
 
-    find_directories("./search_test");
+fn main() {
+    let mut num:usize= 2;
+    find_directories("./search_test", &mut num);
 }
 
-fn find_directories<T>(directory: T) -> std::io::Result<()>
+fn find_directories<T>(directory: T, num: &mut usize) -> std::io::Result<()>
 where
-    T: AsRef<Path>
+    T: AsRef<Path>,
 {
+    println!("Calling number {num:?}");
     for entry in fs::read_dir(directory)? {
         // input "." current directory
         // show subdirectory just Top level(1-level)
         let dir = entry?;
-        println!("{}",dir.path().display());
+
         // it will show the .\src, .\Cargo.toml ..etc
         // find_directories("")
-        find_directories(dir.path().as_path());
+        println!("directory name =>{}", dir.path().display());
+        *num +=1;
+        find_directories(dir.path().as_path(), num );
     }
 
     Ok(())
