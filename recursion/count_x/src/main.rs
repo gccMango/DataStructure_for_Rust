@@ -1,5 +1,5 @@
 fn main() {
-    let text = "가x나xxxx다x라, 마xx바X사아X!";
+    let text = "가x나xxxx다x라, 마xx바X사X!";
     // println!("count x : result => {}",count_x(text));
     println!("count x : result => {}",recursive_count_x(text));
     println!("{}",text);
