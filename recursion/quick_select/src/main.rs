@@ -6,7 +6,11 @@ fn main() {
     quick_sort(&mut vec);
     println!("After : {:?}", vec);
     let n = 0;
-    println!("quick select : {} th lowest value  => {:?}", n+1,quick_select(&mut vec, n));
+    println!(
+        "quick select : {} th lowest value  => {:?}",
+        n + 1,
+        quick_select(&mut vec, n)
+    );
 }
 fn quick_select<T: Ord>(arr: &mut [T], kth_lowest_value: isize) -> Option<&T> {
     let len = arr.len();
@@ -43,7 +47,6 @@ fn quick_select_recursive<T: Ord>(
             p
         }
     }
-    
 }
 
 fn quick_sort<T: Ord>(arr: &mut [T]) {
